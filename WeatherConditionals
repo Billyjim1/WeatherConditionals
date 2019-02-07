@@ -1,0 +1,78 @@
+public class WeatherConditionals
+{
+ //public static boolean windy = false;
+ //public static boolean freezing = false;
+ //public static boolean snow = false;
+ //public static boolean cloudy = false;
+ //public static boolean sunny = false;
+ public static boolean fair = false;
+ public static boolean unsafe = false;
+ public static boolean unpleasant = false;
+ public static boolean unexpected = false;
+ public static String getWeatherAdvice(int temperature, int windchill, int humidity, String description)
+ {
+     if (description.contains ("snow") || 
+     description.contains ("tornado") || 
+     description.contains ("storm") || 
+     description.contains ("hurricane") || 
+     description.contains ("thunderstorms") || 
+     description.contains ("sleet") || 
+     description.contains ("hail") ||
+     description.contains ("freezing") ||
+     ((windchill) < 33) ||
+     ((temperature) < 33) ||
+     ((windchill) > 93) ||
+     ((temperature) > 93) ||
+     (humidity > 61)) 
+     unsafe = true;
+     else if (description.contains ("drizzle") || 
+     description.contains ("showers") || 
+     description.contains ("dust") || 
+     description.contains ("foggy") || 
+     description.contains ("haze") || 
+     description.contains ("smoky") || 
+     description.contains ("windy") ||
+     description.contains ("not available") ||
+     description.contains ("blustery") ||
+     ((temperature) < 40) && ((temperature) > 85) ||
+     ((windchill) < 40) && ((windchill) > 85)) 
+     unpleasant = true;
+     else if (description.contains ("cloudy") || 
+     description.contains ("fair") || 
+     description.contains ("sunny"))
+     fair = true;
+     else unexpected = true;
+     if (unsafe) 
+     return "Its not safe to hike because: "+ (description)+" and "+(temperature)+" Degrees.";
+     else if (unpleasant) 
+     return "It won't be a fun hike, but you could do it."+ (description)+" and "+(temperature)+" Degrees.";
+     else if (fair) 
+     return "Hike, if you must. The weather is as good as its going to get."+ (description)+" and "+(temperature)+" Degrees.";
+     else return "Pray for your life, the old gods have returned!";
+ }
+ 
+ /**public static String getWeatherAdvice(int temperature, String description)
+ {
+     if (description.equals ("windy")) {windy = true;}
+     if (description.contains ("snow")) {snow = true;}
+     if (description.contains ("cloudy")) {cloudy = true;}
+     if (description.contains ("sunny")) {sunny = true;}
+     if (description.contains ("fair")) {fair = true;}
+     if (temperature < 33) {freezing = true;}
+     if (snow && temperature >= 100)
+     return "What in tarnation?";
+     else if (freezing){ 
+     return "Baby its cold outside, " + (temperature) + " degrees, " + (description) +" too.";}
+     else if (windy)
+     return "Its windy out there, better not to go out. " + (temperature) + " degrees, to be exact.";
+     else if (!windy && !freezing)
+     return "Should be safe out there, " + (temperature) + " degrees and " + (description) + ".";
+     return "Ya weather so crazy we don't know what to do";
+ }**/
+ 
+ //public static String temp (int temperature)
+ //{
+ //   if (temperature < 28) return "To Cold";
+ //   else if (temperature < 35) return "Chilly cheese fries";
+ //   else return "Nice weather";
+ //}
